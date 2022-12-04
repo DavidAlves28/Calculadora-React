@@ -1,4 +1,5 @@
 # Calculadora-React
+ ![alt calculadora](./calculadora/src/img/calculadora.png)
 
 ## Projeto criado no Curso React Hooks 
 
@@ -11,8 +12,7 @@ Este projeto consiste em implementar :
 
 
 
- ## O Style feito com Bootstrap, tecnologia em aprendizagem no momento;
- ![alt calculadora](./calculadora/src/img/calculadora.png)
+ ### O Style feito com Bootstrap, tecnologia em aprendizagem no momento;
 
 
 ## Tag utilizadas BootStrap : 
