@@ -7,12 +7,16 @@ function Calculadora() {
   const [calcular, concatenarNum, SOMA, SUBTRACAO, DIVISAO, MULTIPLICAR] = CalculadoraService();
 
   //  ESTADOS
+  // input dos números 
   const [txtNumber, setTxtNumber] = useState('0');
+  // Estado para primeiro número 
   const [numero1, setNumero1] = useState('0');
+  // Estado para segundo número 
   const [numero2, setNumero2] = useState(null);
+  // Estado para operadores númericos
   const [operacao, setOperacao] = useState(null);
 
-
+  //  se  o operador numerico não for definido. função  rendiriza  número1  e concatena com mais números.
   function addNumber(numero) {
     let resultado;
     if (operacao === null) {
@@ -25,31 +29,36 @@ function Calculadora() {
     setTxtNumber(resultado)
 
   }
+
+  // função dos operadores númericos 
   function operadores(op) {
-    // apenas define caso ela nao exita
+    // apenas define caso ela não exita. quando chamada pelo operador o parâmetro difine o tipo de operacao.
     if (operacao === null) {
-      setOperacao(op)
+      setOperacao(op) // espera o Operador como parâmetro (multiplicar,soma,subtração,divisão)
       return;
     }
-    // caso a operacao estiver definida numero 2 selecionado, realiza o calculo
+    // caso a operação estiver definida numero2 selecionado, realiza o calculo
     if (numero2 !== null) {
-      // parseFloat para nao contat
-      const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao)
+      // function calcular() , o parseFloat( ) converse para string primeiro e retonra número decimal para não concatenar com números enquanto o numero2 esta sendo digitado. 
+      const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao)//operação
       setOperacao(op)
       setNumero1(resultado.toString())
       setNumero2(null)
       setTxtNumber(resultado.toString())
     }
   }
-
+  //  função botão "= " imprimi resultado da operação.
   function retornoCalcular() {
     if (numero2 === null) {
       return;
     }
-    const resultado = calcular(parseFloat(numero1),parseFloat(numero2),operacao)
-    setTxtNumber(resultado)
+    //   a funcão é executada e o Estado setTxtNumber  imprimi resultado da operação.
+    const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao) // operação 
+    setTxtNumber(resultado) // resultado
   }
-  function limparTxtNumber (){
+
+  // função botão 'C' limpa todos os Estados ao  padrão. 
+  function limparTxtNumber() {
     setTxtNumber('0')
     setNumero1('0')
     setNumero2(null)
@@ -57,12 +66,13 @@ function Calculadora() {
   }
 
   return (
+    
     <Container style={{
-      background: `#2222`,
+      background: `#1a237e`,
       backgroundColor: 'transparent !important',
-      width: "400px",
+      width: "500px",
       padding: '5px',
-      margin: '5px',
+      margin: '100px',
       borderRadius: '4px',
 
     }}>
@@ -87,7 +97,7 @@ function Calculadora() {
           <Button variant="light" onClick={() => addNumber('9')}>9</Button>
         </Col>
         <Col xs='3'>
-          <Button variant="warning" onClick={() => operadores(DIVISAO)}>/</Button>
+          <Button variant="success" onClick={() => operadores(DIVISAO)}>/</Button>
         </Col>
       </Row>
 
@@ -102,7 +112,7 @@ function Calculadora() {
           <Button variant="light" onClick={() => addNumber('6')}>6</Button>
         </Col>
         <Col xs='3'>
-          <Button variant="warning" onClick={() => operadores(MULTIPLICAR)} >*</Button>
+          <Button variant="success" onClick={() => operadores(MULTIPLICAR)} >*</Button>
         </Col>
       </Row>
 
@@ -117,7 +127,7 @@ function Calculadora() {
           <Button variant="light" onClick={() => addNumber('3')}>3</Button>
         </Col>
         <Col xs='3'>
-          <Button variant="warning" onClick={() => operadores(SUBTRACAO)}>-</Button>
+          <Button variant="success" onClick={() => operadores(SUBTRACAO)}>-</Button>
         </Col>
       </Row>
       <Row>
@@ -128,7 +138,7 @@ function Calculadora() {
           <Button variant="light" onClick={() => addNumber('.')}>.</Button>
         </Col>
         <Col xs='3'>
-          <Button variant="warning"  onClick={retornoCalcular}>=</Button>
+          <Button variant="warning" onClick={retornoCalcular}>=</Button>
         </Col>
         <Col xs='3'>
           <Button variant="success" onClick={() => operadores(SOMA)} >+</Button>
