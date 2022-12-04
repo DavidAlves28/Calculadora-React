@@ -1,8 +1,11 @@
 export default function CalculadoraService() {
+    // Operadores
     const SOMA = '+';
     const SUBTRACAO = '-';
     const DIVISAO = '/';
     const MULTIPLICAR = "*"
+
+    // função para cada operador, 
     function calcular(num1, num2, operacao) {
         let resultado;
         switch (operacao) {
@@ -23,8 +26,10 @@ export default function CalculadoraService() {
         }
         return resultado
     }
+
+    // função para casos de '.' , '0' e números negativos.
     function concatenarNum (numAtual , numConcat){
-        //  caso contenha apenas '0' ou null reinicar o valor
+        //  caso contenha apenas '0' ou null . define como string vazia.
         if(numAtual === '0'|| numAtual === null){
             numAtual = "";
         }

@@ -12,18 +12,22 @@ describe('Teste do CalculadoraService', () => {
         let soma = calcular(2, 2, SOMA);
         expect(soma).toEqual(4)
     })
+     //  caso 2: SUBTRACAO"
     it('retornar que 1 - 4 = -3 ',()=>{
         let subtracao = calcular(1,4,SUBTRACAO);
         expect(subtracao).toEqual(-3)
     } )
+     //  caso 3: "DIVISAO"
     it('retornar que 1/4 = 0.25 ', ()=>{
         let divisao = calcular(1,4, DIVISAO);
         expect(divisao).toEqual(0.25)
     })
+     //  caso 4: "MULTIPLICAR"
     it('retornar que 1 * 4 = 4', ()=>{
         let multiplicar = calcular(1,4, MULTIPLICAR)
         expect(multiplicar).toEqual(4)
     })
+     //  caso 5: PARA OPERACÕES INVALIDAS!
     it('retornar 0 para operacao invalida', ()=>{
         let operacaoInvalida = calcular(1,3 , '%')
         expect(operacaoInvalida).toEqual(0)
