@@ -1,5 +1,8 @@
 # Calculadora-React
  ![alt calculadora](./calculadora/src/img/calculadora.png)
+ 
+ 
+ ### Deploy: https://calculadora-react-f5hr.vercel.app/
 
 ## Projeto criado no Curso React Hooks 
 
